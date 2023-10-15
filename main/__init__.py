@@ -1,32 +1,26 @@
-#Github.com/Vasusen-code
-
 from pyrogram import Client
-
-from telethon.sessions import StringSession
 from telethon.sync import TelegramClient
-
-from decouple import config
-import logging, time, sys
+import logging
+import sys
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.WARNING)
 
 # variables
-API_ID = config("API_ID", default=None, cast=int)
-API_HASH = config("API_HASH", default=None)
-BOT_TOKEN = config("BOT_TOKEN", default=None)
-SESSION = config("SESSION", default=None)
-FORCESUB = config("FORCESUB", default=None)
-AUTH = config("AUTH", default=None, cast=int)
+API_ID = 24490919
+API_HASH = "d1b3b15126c47dd4cb491553ee1db910"
+BOT_TOKEN = "6268814503:AAE_rYad1LNFW8fu7ISp4l51Bsg2GfA8xOI"
+SESSION = "BQBLQgngPBucZBz_zQuPjTQI4O4L6BH4iBIjEoXsSn3bUGt4MUFSyJG3ygDwWqaJ71SZCH0cgfiTTIhl94bz2JGwuM1YOMxxYHEyO0WGNwglrDYxzi6LO5mvuyBA3-CxQedOermmgVs_zdL7Xu8WW8kugE8Nkl16IDtS8_1s9RjqZRpp7DHNLDEVpu8C5PVy5fqXYoDBszis5E49wXiKJMljLEuC3mI0XMUnqWgL22h4UevHshPqYFD5jQZ0qtM9-r7jywn3G74NmjJZT5-DssZ6IM15kVKxqxIKH7kjGCwh5XvgOaAdtnyVGhxHUXW9V4dH8WsIU_BA7RWjzeaBRkj3AAAAAU8LZgIA"
+FORCESUB = "batchingupdate"
+AUTH = 6368637393
 
-bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN) 
-
-userbot = Client("saverestricted", session_string=SESSION, api_hash=API_HASH, api_id=API_ID) 
+bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
+userbot = Client("saverestricted", api_hash=API_HASH, api_id=API_ID)
 
 try:
     userbot.start()
 except BaseException:
-    print("Userbot Error ! Have you added SESSION while deploying??")
+    print("Userbot Error! Have you added SESSION while deploying??")
     sys.exit(1)
 
 Bot = Client(
@@ -34,7 +28,7 @@ Bot = Client(
     bot_token=BOT_TOKEN,
     api_id=int(API_ID),
     api_hash=API_HASH
-)    
+)
 
 try:
     Bot.start()
